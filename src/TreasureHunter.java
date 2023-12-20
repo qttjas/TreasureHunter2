@@ -67,7 +67,7 @@ public class TreasureHunter {
     }
 
     /**
-     * Creates a new town and adds the Hunter to it.
+     * Creates a new town and adds the Hunter to it
      */
     private void enterTown() {
         double markdown = 0.50;
