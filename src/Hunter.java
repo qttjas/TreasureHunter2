@@ -9,6 +9,7 @@ public class Hunter {
     private String hunterName;
     private String[] kit;
     private int gold;
+    private String[] treasures;
 
     /**
      * The base constructor of a Hunter assigns the name to the hunter and an empty kit.
@@ -20,6 +21,7 @@ public class Hunter {
         this.hunterName = hunterName;
         kit = new String[6]; // only 5 possible items can be stored in kit ---> UPDATED TO 6 ITEMS
         gold = startingGold;
+        treasures = new String[3]; //crown; trophy; gem
     }
 
     //Accessors
@@ -196,7 +198,52 @@ public class Hunter {
                 return i;
             }
         }
-
         return -1;
+    }
+
+    ///treasure
+    public boolean hasTreasure(String item) {
+        for (String tmpTreasure : treasures) {
+            if (item.equals(tmpTreasure)) {
+                // early return
+                return true;
+            }
+        }
+
+        return false;
+    }
+    private int emptyPositionInTreasure() {
+        for (int i = 0; i < treasures.length; i++) {
+            if (treasures[i] == null) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public boolean addTreasure(String item) {
+        if (!hasTreasure(item)) {
+            int idx = emptyPositionInTreasure();
+            treasures[idx] = item;
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean foundAllTreasures(String treasures) {
+        int count = 0;
+        if (treasures.indexOf("a crown") != -1) {
+            count++;
+        }
+        if (treasures.indexOf("a trophy") != -1) {
+            count++;
+        }
+        if (treasures.indexOf("a gem") != -1) {
+            count++;
+        }
+        if (count == 3) {
+            return true;
+        }
+        return false;
     }
 }
