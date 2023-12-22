@@ -19,7 +19,7 @@ public class Hunter {
      */
     public Hunter(String hunterName, int startingGold) {
         this.hunterName = hunterName;
-        kit = new String[7]; // only 5 possible items can be stored in kit ---> UPDATED TO 6 ITEMS
+        kit = new String[7]; // only 5 possible items can be stored in kit ---> UPDATED TO 6 ITEMS --> 7
         gold = startingGold;
         treasures = new String[3]; //crown; trophy; gem
     }
@@ -155,6 +155,11 @@ public class Hunter {
         if (!kitIsEmpty()) {
             str += " and " + getInventory();
         }
+        if (!treasureIsEmpty()) {
+            str += "\nTreasures found: " + Colors.BLUE + getTreasures() + Colors.RESET;
+        }else {
+            str += "\nTreasures found: none";
+        }
         return str;
     }
 
@@ -206,6 +211,15 @@ public class Hunter {
         return -1;
     }
     ///treasure
+    private boolean treasureIsEmpty() {
+        for (String string : treasures) {
+            if (string != null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
     public boolean hasTreasure(String item) {
         for (String tmpTreasure : treasures) {
             if (item.equals(tmpTreasure)) {
@@ -250,4 +264,15 @@ public class Hunter {
         }
         return false;
     }
+
+    public String getTreasures() {
+        String printTreasures = "";
+        for (String treasure : treasures) {
+            if (treasure != null) {
+                printTreasures += treasure + " ";
+            }
+        }
+        return printTreasures;
+    }
+
 }
