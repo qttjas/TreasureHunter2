@@ -3,5 +3,6 @@ public class TreasureHunterRunner {
         System.out.println("hi");
         TreasureHunter game = new TreasureHunter();
         game.play();
+
     }
 }
