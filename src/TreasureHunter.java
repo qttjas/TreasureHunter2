@@ -11,11 +11,13 @@ import java.util.Scanner;
 public class TreasureHunter {
     // static variables
     private static final Scanner SCANNER = new Scanner(System.in);
+    public boolean gameOver = false;
 
     // instance variables
     private Town currentTown;
     private Hunter hunter;
     private boolean hardMode;
+    private String difficulty;
 
     /**
      * Constructs the Treasure Hunter game.
@@ -46,9 +48,9 @@ public class TreasureHunter {
         String name = SCANNER.nextLine().toLowerCase();
 
         System.out.print("Hard mode? (y/n): ");
-        String mode = SCANNER.nextLine().toLowerCase();
+        String difficulty = SCANNER.nextLine().toLowerCase();
 
-        if (mode.equals("test")) {
+        if (difficulty.equals("test")) {
             hardMode = true;
             hunter = new Hunter(name, 144);
             hunter.buyItem("water", 2);
@@ -57,7 +59,7 @@ public class TreasureHunter {
             hunter.buyItem("horse", 12);
             hunter.buyItem("boat", 20);
             hunter.buyItem("boots", 15);
-        } else if (mode.equals("y")) {
+        } else if (difficulty.equals("y")) {
             hardMode = true;
             hunter = new Hunter(name,10);
         } else {
@@ -105,7 +107,7 @@ public class TreasureHunter {
     private void showMenu() {
         String choice = "";
 
-        while (!choice.equals("x")) {
+        while (!choice.equals("x") && !gameOver) {
             System.out.println();
             System.out.println(currentTown.getLatestNews());
             System.out.println("***");
@@ -120,6 +122,10 @@ public class TreasureHunter {
             System.out.print("What's your next move? ");
             choice = SCANNER.nextLine().toLowerCase();
             processChoice(choice);
+            if (Hunter.getGold() <= 0) {
+                System.out.println("You lost all of your gold and died");
+                gameOver = true;
+            }
         }
     }
 

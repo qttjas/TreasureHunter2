@@ -8,7 +8,7 @@ public class Hunter {
     //instance variables
     private String hunterName;
     private String[] kit;
-    private int gold;
+    private static int gold;
 
     /**
      * The base constructor of a Hunter assigns the name to the hunter and an empty kit.
@@ -25,6 +25,9 @@ public class Hunter {
     //Accessors
     public String getHunterName() {
         return hunterName;
+    }
+    public static int getGold(){
+        return gold;
     }
 
     /**
