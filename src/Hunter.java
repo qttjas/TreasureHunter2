@@ -19,7 +19,7 @@ public class Hunter {
      */
     public Hunter(String hunterName, int startingGold) {
         this.hunterName = hunterName;
-        kit = new String[6]; // only 5 possible items can be stored in kit ---> UPDATED TO 6 ITEMS
+        kit = new String[7]; // only 5 possible items can be stored in kit ---> UPDATED TO 6 ITEMS
         gold = startingGold;
         treasures = new String[3]; //crown; trophy; gem
     }
@@ -250,5 +250,4 @@ public class Hunter {
         }
         return false;
     }
-}
 }

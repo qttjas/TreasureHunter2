@@ -12,6 +12,8 @@ public class Town {
     private String printMessage;
     private boolean toughTown;
     private String assignedTreasure;
+    private boolean dug;
+
     private boolean searchedTown;
 
     /**
@@ -197,5 +199,23 @@ public class Town {
         double rand = Math.random();
         return (rand < 0.5);
     }
-
+    public void digForTreasure(Hunter hunter){
+        if (!hunter.hasItemInKit("shovel")){
+            System.out.println("You can't dig for gold without a shovel\n");
+        } else {
+            if (dug) {
+                System.out.println("You dug but only found dirt\n");
+            } else {
+                double chance = Math.random();
+                if (chance >= .5) {
+                    int goldFound = (int) (Math.random() * 20 + 1);
+                    hunter.changeGold(goldFound);
+                    System.out.println("You found " + goldFound + " gold\n");
+                } else {
+                    System.out.println("You couldn't find anything!\n");
+                }
+                dug = true;
+            }
+        }
+    }
 }
