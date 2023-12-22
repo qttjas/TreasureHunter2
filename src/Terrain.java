@@ -8,6 +8,8 @@ public class Terrain {
     private String terrainName;
     private String neededItem;
 
+
+
     /**
      * Sets the class member variables
      *
@@ -27,6 +29,8 @@ public class Terrain {
     public String getNeededItem() {
         return neededItem;
     }
+
+
 
     /**
      * Guards against a hunter crossing the zone without the proper item.

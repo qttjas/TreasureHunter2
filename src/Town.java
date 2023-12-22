@@ -11,6 +11,8 @@ public class Town {
     private Terrain terrain;
     private String printMessage;
     private boolean toughTown;
+    private String assignedTreasure;
+    private boolean searchedTown;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -30,12 +32,58 @@ public class Town {
 
         // higher toughness = more likely to be a tough town
         toughTown = (Math.random() < toughness);
+
+        searchedTown = false;
     }
 
     public String getLatestNews() {
         return printMessage;
     }
 
+    /////treasure
+    //random treasure
+    private void randomTreasure() {
+        double x = Math.random();
+        if (x < 0.33) {
+            assignedTreasure = "Gem";
+        }else if ( x < 0.66) {
+            assignedTreasure = "Trophy";
+        }else {
+            assignedTreasure = "Crown";
+        }
+    }
+
+    public void huntForTreasure() {
+        if (!searchedTown) {
+            double x = Math.random();
+            String t;
+            if (x < 0.25) {
+                t = "a crown";
+            }else if (x < 0.5) {
+                t = "a trophy";
+            }else if (x < 0.75) {
+                t = "a gem";
+            }else {
+                t = "dust";
+            }
+            System.out.println();
+            System.out.println("you found " + t + "!");
+            searchedTown = true;
+            if (!t.equals("dust")) {
+                if (!hunter.hasTreasure(t)) {
+                    hunter.addTreasure(t);
+                }else {
+                    System.out.println("you've already collected this treasure");
+                }
+
+            }
+        }else {
+            System.out.println();
+            System.out.println("you've already searched this town");
+        }
+    }
+
+    //////^^^^treasure^^^^/////
     /**
      * Assigns an object to the Hunter in town.
      *
@@ -73,7 +121,6 @@ public class Town {
         printMessage = "You can't leave town, " + hunter.getHunterName() + ". You don't have a " + terrain.getNeededItem() + ".";
         return false;
     }
-
     /**
      * Handles calling the enter method on shop whenever the user wants to access the shop.
      *
@@ -104,7 +151,7 @@ public class Town {
             int goldDiff = (int) (Math.random() * 10) + 1;
             if (Math.random() > noTroubleChance) {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
-                printMessage += "\nYou won the brawl and receive " + Colors.YELLOW + goldDiff + Colors.RESET + " gold.";
+                printMessage += "\nYou won the brawl and receive " + Colors.YELLOW + goldDiff + Colors.RED + " gold." + Colors.RESET;
                 hunter.changeGold(goldDiff);
             } else {
                 printMessage += "That'll teach you to go lookin' fer trouble in MY town! Now pay up!";
@@ -113,6 +160,7 @@ public class Town {
             }
         }
     }
+
 
     public String toString() {
         return "This nice little town is surrounded by " + Colors.CYAN + terrain.getTerrainName() + Colors.RESET + ".";
@@ -149,4 +197,5 @@ public class Town {
         double rand = Math.random();
         return (rand < 0.5);
     }
+
 }
