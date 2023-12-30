@@ -204,7 +204,7 @@ public class Town {
             System.out.println("You can't dig for gold without a shovel\n");
         } else {
             if (dug) {
-                System.out.println("You dug but only found dirt\n");
+                System.out.println("You already dug for gold in this town\n");
             } else {
                 double chance = Math.random();
                 if (chance >= .5) {
@@ -212,7 +212,7 @@ public class Town {
                     hunter.changeGold(goldFound);
                     System.out.println("You found " + goldFound + " gold\n");
                 } else {
-                    System.out.println("You couldn't find anything!\n");
+                    System.out.println("You dug but only found dirt.\n");
                 }
                 dug = true;
             }

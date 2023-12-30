@@ -19,6 +19,7 @@ public class TreasureHunter {
     private boolean hardMode;
     private String difficulty;
 
+
     /**
      * Constructs the Treasure Hunter game.
      */
@@ -47,8 +48,10 @@ public class TreasureHunter {
         System.out.print("What's your name, Hunter? ");
         String name = SCANNER.nextLine().toLowerCase();
 
-        System.out.print("Hard mode? (y/n): ");
+        System.out.print("(E)asy, (N)ormal, (H)ard: ");
         String difficulty = SCANNER.nextLine().toLowerCase();
+
+        hunter = new Hunter(name,10);
 
         if (difficulty.equals("test")) {
             hardMode = true;
@@ -58,13 +61,12 @@ public class TreasureHunter {
             hunter.buyItem("machete", 6);
             hunter.buyItem("horse", 12);
             hunter.buyItem("boat", 20);
-            hunter.buyItem("boots", 15);
-        } else if (difficulty.equals("y")) {
+            hunter.buyItem("boot", 15);
+        } else if (difficulty.equals("h")) {
             hardMode = true;
-            hunter = new Hunter(name,10);
-        } else {
+        } else if (difficulty.equals("e")) {
             hardMode = false;
-            hunter = new Hunter(name,10);
+            hunter = new Hunter(name,20);
         }
     }
 
@@ -81,6 +83,9 @@ public class TreasureHunter {
             // and the town is "tougher"
             toughness = 0.75;
         }
+        if (difficulty.equals("e")) {
+            markdown = 1;
+        }
 
         // note that we don't need to access the Shop object
         // outside of this method, so it isn't necessary to store it as an instance
@@ -90,7 +95,11 @@ public class TreasureHunter {
         // creating the new Town -- which we need to store as an instance
         // variable in this class, since we need to access the Town
         // object in other methods of this class
-        currentTown = new Town(shop, toughness);
+        if (difficulty.equals("e")) {
+            currentTown = new Town(shop, toughness, true);
+        } else {
+            currentTown = new Town(shop, toughness, false);
+        }
 
         // calling the hunterArrives method, which takes the Hunter
         // as a parameter; note this also could have been done in the
