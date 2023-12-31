@@ -53,20 +53,20 @@ public class TreasureHunter {
 
         hunter = new Hunter(name,10);
 
-        if (difficulty.equals("test")) {
+        if (difficulty.equals("h")) {
             hardMode = true;
-            hunter = new Hunter(name, 144);
+        } else if (difficulty.equals("test")) {
+            hardMode = false;
+            hunter = new Hunter(name,  154);
             hunter.buyItem("water", 2);
             hunter.buyItem("rope", 4);
             hunter.buyItem("machete", 6);
             hunter.buyItem("horse", 12);
             hunter.buyItem("boat", 20);
-            hunter.buyItem("boot", 15);
-        } else if (difficulty.equals("h")) {
-            hardMode = true;
+            hunter.buyItem("boot", 10);
         } else if (difficulty.equals("e")) {
             hardMode = false;
-            hunter = new Hunter(name,20);
+            hunter = new Hunter(name,  20);
         }
     }
 
@@ -83,7 +83,7 @@ public class TreasureHunter {
             // and the town is "tougher"
             toughness = 0.75;
         }
-        if (difficulty.equals("e")) {
+        if (difficulty != null && difficulty.equals("e")) {
             markdown = 1;
         }
 
@@ -97,6 +97,7 @@ public class TreasureHunter {
         // object in other methods of this class
 
         currentTown = new Town(shop, toughness);
+
 
         // calling the hunterArrives method, which takes the Hunter
         // as a parameter; note this also could have been done in the
