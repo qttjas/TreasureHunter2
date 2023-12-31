@@ -12,6 +12,7 @@ public class Town {
     private String printMessage;
     private boolean toughTown;
     private String assignedTreasure;
+    private boolean easy;
     private boolean dug;
 
     private boolean searchedTown;
@@ -109,7 +110,11 @@ public class Town {
      */
     public boolean leaveTown() {
         boolean canLeaveTown = terrain.canCrossTerrain(hunter);
-        if (canLeaveTown) {
+        if (canLeaveTown && easy) {
+            String item = terrain.getNeededItem();
+            printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
+            return true;
+        } else if (canLeaveTown) {
             String item = terrain.getNeededItem();
             printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
             if (checkItemBreak()) {
@@ -151,7 +156,11 @@ public class Town {
         } else {
             printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
             int goldDiff = (int) (Math.random() * 10) + 1;
-            if (Math.random() > noTroubleChance) {
+            if (TreasureHunter.samuraiMode) {
+                printMessage += "Your sword has taken a life. Once again, a great victory for our Japan.";
+                printMessage += "\nGlory to the Almighty Shogun";
+                hunter.changeGold(goldDiff);
+            } else if (Math.random() > noTroubleChance) {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
                 printMessage += "\nYou won the brawl and receive " + Colors.YELLOW + goldDiff + Colors.RED + " gold." + Colors.RESET;
                 hunter.changeGold(goldDiff);

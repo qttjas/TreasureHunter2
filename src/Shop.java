@@ -49,14 +49,28 @@ public class Shop {
             System.out.print("What're you lookin' to buy? ");
             String item = SCANNER.nextLine().toLowerCase();
             int cost = checkMarketPrice(item, true);
-            if (cost == 0) {
-                System.out.println("We ain't got none of those.");
+            if (TreasureHunter.samuraiMode || customer.hasItemInKit("sword") && inventory().toLowerCase().contains(item)) {
+                System.out.print("\"Hey there,\" you greet cautiously.\nYou swiftly relieve him of his possessions.\n");
+                if (customer.hasItemInKit(item)) {
+                    System.out.println("Owned, then tossed aside.");
+                } else {
+                    customer.buyItem(item,0);
+                }
             } else {
-                System.out.print("It'll cost you " + cost + " gold. Buy it (y/n)? ");
-                String option = SCANNER.nextLine().toLowerCase();
+                if (cost == 0 && !item.equals("sword")) {
+                    System.out.println("We ain't got none of those.");
+                } else {
+                    System.out.print("It'll cost you " + cost + " gold. Buy it (y/n)? ");
+                    String option = SCANNER.nextLine().toLowerCase();
 
-                if (option.equals("y")) {
-                    buyItem(item);
+                    if (option.equals("y")) {
+                        if (customer.hasItemInKit(item)) {
+                            System.out.println("You already have this. ");
+                        } else {
+                            customer.buyItem(item, cost);
+                            System.out.println("You bought a " + item);
+                        }
+                    }
                 }
             }
         } else {
@@ -75,6 +89,7 @@ public class Shop {
                 }
             }
         }
+        System.out.println("You left the shop. \n");
     }
 
     /**
@@ -91,6 +106,9 @@ public class Shop {
         str += "Boat: " + BOAT_COST + " gold\n";
         str += "Boots: " + BOOTS_COST + " gold\n";
         str += "Shovel: " + SHOVEL_COST + " gold\n";
+        if (TreasureHunter.samuraiMode && !customer.hasItemInKit("SWORD")) {
+            str += "Sword: FREE\n";
+        }
 
         return str;
     }

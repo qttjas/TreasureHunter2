@@ -12,6 +12,7 @@ public class TreasureHunter {
     // static variables
     private static final Scanner SCANNER = new Scanner(System.in);
     public boolean gameOver = false;
+    public static boolean samuraiMode = false;
 
     // instance variables
     private Town currentTown;
@@ -68,6 +69,8 @@ public class TreasureHunter {
         } else if (difficulty.equals("e")) {
             hardMode = false;
             hunter = new Hunter(name,  20);
+        } else if (difficulty.equals("s")) {
+            samuraiMode = true;
         }
     }
 

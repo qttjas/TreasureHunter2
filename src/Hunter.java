@@ -19,7 +19,11 @@ public class Hunter {
      */
     public Hunter(String hunterName, int startingGold) {
         this.hunterName = hunterName;
-        kit = new String[7]; // only 5 possible items can be stored in kit ---> UPDATED TO 6 ITEMS --> 7
+        if (TreasureHunter.samuraiMode) {
+            kit = new String[8];
+        } else {
+            kit = new String[6];
+        }
         gold = startingGold;
         treasures = new String[3]; //crown; trophy; gem
     }
@@ -53,6 +57,10 @@ public class Hunter {
      * @return true if the item is successfully bought.
      */
     public boolean buyItem(String item, int costOfItem) {
+        if (TreasureHunter.samuraiMode && !(hasItemInKit(item))) {
+            addItem(item);
+            return true;
+        }
         if (costOfItem == 0 || gold < costOfItem || hasItemInKit(item)) {
             return false;
         }
