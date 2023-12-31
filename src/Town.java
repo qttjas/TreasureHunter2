@@ -163,6 +163,31 @@ public class Town {
         }
     }
 
+    public void easyLookForTrouble() {
+        double noTroubleChance;
+        if (toughTown) {
+            noTroubleChance = 0.66;
+        } else {
+            noTroubleChance = 0.33;
+        }
+
+        if (Math.random() > noTroubleChance) {
+            printMessage = "You couldn't find any trouble";
+        } else {
+            printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
+            int goldDiff = (int) (Math.random() * 10) + 1;
+            if (Math.random() > .2) {
+                printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
+                printMessage += "\nYou won the brawl and receive " + Colors.YELLOW + goldDiff + Colors.RED + " gold." + Colors.RESET;
+                hunter.changeGold(goldDiff);
+            } else {
+                printMessage += "That'll teach you to go lookin' fer trouble in MY town! Now pay up!";
+                printMessage += "\nYou lost the brawl and pay " + Colors.YELLOW + goldDiff + Colors.RED + " gold." + Colors.RESET;
+                hunter.changeGold(-goldDiff);
+            }
+        }
+    }
+
 
     public String toString() {
         return "This nice little town is surrounded by " + Colors.CYAN + terrain.getTerrainName() + Colors.RESET + ".";
@@ -175,15 +200,15 @@ public class Town {
      */
     private Terrain getNewTerrain() {
         double rnd = Math.random();
-        if (rnd < .2) {
+        if (rnd < .1) {
             return new Terrain("Mountains", "Rope");
-        } else if (rnd < .4) {
+        } else if (rnd < .2) {
             return new Terrain("Ocean", "Boat");
-        } else if (rnd < .6) {
+        } else if (rnd < .4) {
             return new Terrain("Plains", "Horse");
-        } else if (rnd < .8) {
+        } else if (rnd < .6) {
             return new Terrain("Desert", "Water");
-        } else if (rnd < .9){
+        } else if (rnd < .8){
             return new Terrain("Jungle", "Machete");
         } else {
             return new Terrain("Marsh", "Boots");

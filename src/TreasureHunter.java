@@ -49,7 +49,7 @@ public class TreasureHunter {
         String name = SCANNER.nextLine().toLowerCase();
 
         System.out.print("(E)asy, (N)ormal, (H)ard: ");
-        String difficulty = SCANNER.nextLine().toLowerCase();
+        difficulty = SCANNER.nextLine().toLowerCase();
 
         hunter = new Hunter(name,10);
 
@@ -57,13 +57,14 @@ public class TreasureHunter {
             hardMode = true;
         } else if (difficulty.equals("test")) {
             hardMode = false;
-            hunter = new Hunter(name,  154);
+            hunter = new Hunter(name,  162);
             hunter.buyItem("water", 2);
             hunter.buyItem("rope", 4);
             hunter.buyItem("machete", 6);
             hunter.buyItem("horse", 12);
             hunter.buyItem("boat", 20);
             hunter.buyItem("boot", 10);
+            hunter.buyItem("shovel", 8);
         } else if (difficulty.equals("e")) {
             hardMode = false;
             hunter = new Hunter(name,  20);
@@ -83,7 +84,7 @@ public class TreasureHunter {
             // and the town is "tougher"
             toughness = 0.75;
         }
-        if (difficulty != null && difficulty.equals("e")) {
+        if (difficulty.equals("e")) {
             markdown = 1;
         }
 
@@ -96,7 +97,11 @@ public class TreasureHunter {
         // variable in this class, since we need to access the Town
         // object in other methods of this class
 
-        currentTown = new Town(shop, toughness);
+        if (difficulty.equals("e")) {
+            currentTown = new Town(shop, toughness);
+        } else {
+            currentTown = new Town(shop, toughness);
+        }
 
 
         // calling the hunterArrives method, which takes the Hunter
@@ -152,11 +157,12 @@ public class TreasureHunter {
                 System.out.println(currentTown.getLatestNews());
                 enterTown();
             }
-        } else if (choice.equals("h")) {
-            ////////////////////////
-            currentTown.huntForTreasure();
         } else if (choice.equals("l")) {
-            currentTown.lookForTrouble();
+            if (difficulty.equals("e")) {
+                currentTown.easyLookForTrouble();
+            } else {
+                currentTown.lookForTrouble();
+            }
         } else if (choice.equals("x")) {
             System.out.println("Fare thee well, " + hunter.getHunterName() + "!");
         } else if (choice.equals("d")){
