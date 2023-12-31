@@ -106,7 +106,7 @@ public class Shop {
         str += "Boat: " + BOAT_COST + " gold\n";
         str += "Boots: " + BOOTS_COST + " gold\n";
         str += "Shovel: " + SHOVEL_COST + " gold\n";
-        if (TreasureHunter.samuraiMode && !customer.hasItemInKit("SWORD")) {
+        if (TreasureHunter.samuraiMode && !customer.hasItemInKit("Sword")) {
             str += "Sword: FREE\n";
         }
 
