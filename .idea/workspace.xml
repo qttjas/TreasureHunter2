@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da1842fb-d6d6-4e2c-9a18-bc86d40b9d14" name="Changes" comment="minor mistakes" />
+    <list default="true" id="da1842fb-d6d6-4e2c-9a18-bc86d40b9d14" name="Changes" comment="fixed">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TreasureHunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreasureHunter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704045044712</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixed">
+      <option name="closed" value="true" />
+      <created>1704045666189</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704045666189</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -101,6 +115,7 @@
     <MESSAGE value="TH-8 done" />
     <MESSAGE value="TH-10 done" />
     <MESSAGE value="minor mistakes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor mistakes" />
+    <MESSAGE value="fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
   </component>
 </project>

@@ -13,7 +13,7 @@ public class Shop {
     private static final int MACHETE_COST = 6;
     private static final int HORSE_COST = 12;
     private static final int BOAT_COST = 20;
-    private static final int BOOTS_COST = 15;
+    private static final int BOOT_COST = 15;
     private static final int SHOVEL_COST = 8;
 
     // static variables
@@ -104,7 +104,7 @@ public class Shop {
         str += "Machete: " + MACHETE_COST + " gold\n";
         str += "Horse: " + HORSE_COST + " gold\n";
         str += "Boat: " + BOAT_COST + " gold\n";
-        str += "Boots: " + BOOTS_COST + " gold\n";
+        str += "Boot: " + BOOT_COST + " gold\n";
         str += "Shovel: " + SHOVEL_COST + " gold\n";
         if (TreasureHunter.samuraiMode && !customer.hasItemInKit("Sword")) {
             str += "Sword: FREE\n";
@@ -173,8 +173,8 @@ public class Shop {
             return HORSE_COST;
         } else if (item.equals("boat")) {
             return BOAT_COST;
-        } else if (item.equals("boots")) {
-            return BOOTS_COST;
+        } else if (item.equals("boot")) {
+            return BOOT_COST;
         } else if (item.equals("shovel")) {
             return SHOVEL_COST;
         } else {

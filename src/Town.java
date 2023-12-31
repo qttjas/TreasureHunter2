@@ -117,7 +117,7 @@ public class Town {
         } else if (canLeaveTown) {
             String item = terrain.getNeededItem();
             printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
-            if (checkItemBreak()) {
+            if (!easy && checkItemBreak()) {
                 hunter.removeItemFromKit(item);
                 printMessage += "\nUnfortunately, you lost your " + item + ".";
             }
@@ -183,7 +183,7 @@ public class Town {
         if (Math.random() > noTroubleChance) {
             printMessage = "You couldn't find any trouble";
         } else {
-            printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
+            printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n" + Colors.RESET;
             int goldDiff = (int) (Math.random() * 10) + 1;
             if (Math.random() > .2) {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
@@ -209,25 +209,25 @@ public class Town {
      */
     private Terrain getNewTerrain() {
         double rnd = Math.random();
-        if (rnd < .1) {
+        if (rnd < 1.0/6) {
             return new Terrain("Mountains", "Rope");
-        } else if (rnd < .2) {
+        } else if (rnd < 2.0/6) {
             return new Terrain("Ocean", "Boat");
-        } else if (rnd < .4) {
+        } else if (rnd < 3.0/6) {
             return new Terrain("Plains", "Horse");
-        } else if (rnd < .6) {
+        } else if (rnd < 4.0/6) {
             return new Terrain("Desert", "Water");
-        } else if (rnd < .8){
+        } else if (rnd < 5.0/6){
             return new Terrain("Jungle", "Machete");
         } else {
-            return new Terrain("Marsh", "Boots");
+            return new Terrain("Marsh", "Boot");
         }
     }
 
     /**
      * Determines whether a used item has broken.
      *
-     * @return true if the item zbroke.
+     * @return true if the item broke.
      */
     private boolean checkItemBreak() {
         double rand = Math.random();
