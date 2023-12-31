@@ -117,7 +117,7 @@ public class Town {
         } else if (canLeaveTown) {
             String item = terrain.getNeededItem();
             printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
-            if (!easy && checkItemBreak()) {
+            if (!easy && checkItemBreak()) { // check
                 hunter.removeItemFromKit(item);
                 printMessage += "\nUnfortunately, you lost your " + item + ".";
             }
