@@ -95,11 +95,8 @@ public class TreasureHunter {
         // creating the new Town -- which we need to store as an instance
         // variable in this class, since we need to access the Town
         // object in other methods of this class
-        if (difficulty.equals("e")) {
-            currentTown = new Town(shop, toughness, true);
-        } else {
-            currentTown = new Town(shop, toughness, false);
-        }
+
+        currentTown = new Town(shop, toughness);
 
         // calling the hunterArrives method, which takes the Hunter
         // as a parameter; note this also could have been done in the
