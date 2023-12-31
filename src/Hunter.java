@@ -22,7 +22,7 @@ public class Hunter {
         if (TreasureHunter.samuraiMode) {
             kit = new String[8];
         } else {
-            kit = new String[6];
+            kit = new String[7];
         }
         gold = startingGold;
         treasures = new String[3]; //crown; trophy; gem
