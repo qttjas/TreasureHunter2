@@ -144,6 +144,10 @@ public class TreasureHunter {
                 System.out.println("You lost all of your gold and died");
                 gameOver = true;
             }
+            if (hunter.foundAllTreasures()) {
+                System.out.println("Congratulations, you have found the last of the three treasures, you win!");
+                gameOver = true;
+            }
         }
     }
 

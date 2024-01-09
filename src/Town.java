@@ -16,7 +16,6 @@ public class Town {
     private boolean dug;
 
     private boolean searchedTown;
-
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
      *
@@ -42,7 +41,6 @@ public class Town {
     public String getLatestNews() {
         return printMessage;
     }
-
     /////treasure
     //random treasure
     private void randomTreasure() {
@@ -128,6 +126,7 @@ public class Town {
         printMessage = "You can't leave town, " + hunter.getHunterName() + ". You don't have a " + terrain.getNeededItem() + ".";
         return false;
     }
+
     /**
      * Handles calling the enter method on shop whenever the user wants to access the shop.
      *

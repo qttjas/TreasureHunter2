@@ -256,9 +256,9 @@ public class Hunter {
         return false;
     }
 
-    public boolean foundAllTreasures(String treasures) {
+    public boolean foundAllTreasures() {
         int count = 0;
-        if (treasures.indexOf("a crown") != -1) {
+        /*if (treasures.indexOf("a crown") != -1) {
             count++;
         }
         if (treasures.indexOf("a trophy") != -1) {
@@ -266,6 +266,16 @@ public class Hunter {
         }
         if (treasures.indexOf("a gem") != -1) {
             count++;
+        }
+        if (count == 3) {
+            return true;
+        }*/
+        for (int i = 0; i < treasures.length; i++) {
+            if (treasures[i] != null) {
+                if (treasures[i].equals("a crown") || treasures[i].equals("a trophy") || treasures[i].equals("a gem")) {
+                    count++;
+                }
+            }
         }
         if (count == 3) {
             return true;
