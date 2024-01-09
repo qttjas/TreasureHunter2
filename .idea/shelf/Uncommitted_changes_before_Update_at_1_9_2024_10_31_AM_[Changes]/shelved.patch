@@ -1,0 +1,152 @@
+Index: src/Shop.java
+===================================================================
+diff --git a/src/Shop.java b/src/Shop
+rename from src/Shop.java
+rename to src/Shop
+--- a/src/Shop.java	
++++ b/src/Shop	
+@@ -13,6 +13,7 @@
+     private static final int MACHETE_COST = 6;
+     private static final int HORSE_COST = 12;
+     private static final int BOAT_COST = 20;
++    private static final int BOOTS_COST = 15;
+ 
+     // static variables
+     private static final Scanner SCANNER = new Scanner(System.in);
+@@ -87,6 +88,7 @@
+         str += "Machete: " + MACHETE_COST + " gold\n";
+         str += "Horse: " + HORSE_COST + " gold\n";
+         str += "Boat: " + BOAT_COST + " gold\n";
++        str += "Boots: " + BOOTS_COST + " gold\n";
+ 
+         return str;
+     }
+@@ -151,8 +153,11 @@
+             return HORSE_COST;
+         } else if (item.equals("boat")) {
+             return BOAT_COST;
++        } else if (item.equals("boots")) {
++            return BOOTS_COST;
+         } else {
+-            return 0;
++                return 0;
++            }
+         }
+     }
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"da1842fb-d6d6-4e2c-9a18-bc86d40b9d14\" name=\"Changes\" comment=\"added classes\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2ZinZB6TRMQvmTVHPZcVvaCW5Sl\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\BT_1N3_01\\IdeaProjects\\Treasure\\src\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"da1842fb-d6d6-4e2c-9a18-bc86d40b9d14\" name=\"Changes\" comment=\"\" />\r\n      <created>1702913820656</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1702913820656</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"added classes\">\r\n      <created>1702913914514</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702913914514</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"added classes\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"added classes\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -1,7 +1,15 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="da1842fb-d6d6-4e2c-9a18-bc86d40b9d14" name="Changes" comment="added classes" />
++    <list default="true" id="da1842fb-d6d6-4e2c-9a18-bc86d40b9d14" name="Changes" comment="complete th1">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hunter.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shop" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -10,24 +18,39 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 2
++}</component>
+   <component name="ProjectId" id="2ZinZB6TRMQvmTVHPZcVvaCW5Sl" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "master"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.TreasureHunterRunner.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\BT_1N3_01\IdeaProjects\Treasure\src" />
+     </key>
+   </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="jdk-21.0.1-openjdk-21.0.1-249ae16d76d6-a618e4d4" />
++      </set>
++    </attachedChunks>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -44,11 +67,20 @@
+       <option name="project" value="LOCAL" />
+       <updated>1702913914514</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="complete th1">
++      <option name="closed" value="true" />
++      <created>1703000394819</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1703000394819</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="added classes" />
+-    <option name="LAST_COMMIT_MESSAGE" value="added classes" />
++    <MESSAGE value="complete th1" />
++    <option name="LAST_COMMIT_MESSAGE" value="complete th1" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/Hunter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/**\r\n * Hunter Class<br /><br />\r\n * This class represents the treasure hunter character (the player) in the Treasure Hunt game.\r\n * This code has been adapted from Ivan Turner's original program -- thank you Mr. Turner!\r\n */\r\n\r\npublic class Hunter {\r\n    //instance variables\r\n    private String hunterName;\r\n    private String[] kit;\r\n    private int gold;\r\n\r\n    /**\r\n     * The base constructor of a Hunter assigns the name to the hunter and an empty kit.\r\n     *\r\n     * @param hunterName The hunter's name.\r\n     * @param startingGold The gold the hunter starts with.\r\n     */\r\n    public Hunter(String hunterName, int startingGold) {\r\n        this.hunterName = hunterName;\r\n        kit = new String[5]; // only 5 possible items can be stored in kit\r\n        gold = startingGold;\r\n    }\r\n\r\n    //Accessors\r\n    public String getHunterName() {\r\n        return hunterName;\r\n    }\r\n\r\n    /**\r\n     * Updates the amount of gold the hunter has.\r\n     *\r\n     * @param modifier Amount to modify gold by.\r\n     */\r\n    public void changeGold(int modifier) {\r\n        gold += modifier;\r\n        if (gold < 0) {\r\n            gold = 0;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Buys an item from a shop.\r\n     *\r\n     * @param item The item the hunter is buying.\r\n     * @param costOfItem The cost of the item.\r\n     * @return true if the item is successfully bought.\r\n     */\r\n    public boolean buyItem(String item, int costOfItem) {\r\n        if (costOfItem == 0 || gold < costOfItem || hasItemInKit(item)) {\r\n            return false;\r\n        }\r\n\r\n        gold -= costOfItem;\r\n        addItem(item);\r\n        return true;\r\n    }\r\n\r\n    /**\r\n     * The Hunter is selling an item to a shop for gold.<p>\r\n     * This method checks to make sure that the seller has the item and that the seller is getting more than 0 gold.\r\n     *\r\n     * @param item The item being sold.\r\n     * @param buyBackPrice the amount of gold earned from selling the item\r\n     * @return true if the item was successfully sold.\r\n     */\r\n    public boolean sellItem(String item, int buyBackPrice) {\r\n        if (buyBackPrice <= 0 || !hasItemInKit(item)) {\r\n            return false;\r\n        }\r\n\r\n        gold += buyBackPrice;\r\n        removeItemFromKit(item);\r\n        return true;\r\n    }\r\n\r\n    /**\r\n     * Removes an item from the kit by setting the index of the item to null.\r\n     *\r\n     * @param item The item to be removed.\r\n     */\r\n    public void removeItemFromKit(String item) {\r\n        int itmIdx = findItemInKit(item);\r\n\r\n        // if item is found\r\n        if (itmIdx >= 0) {\r\n            kit[itmIdx] = null;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Checks to make sure that the item is not already in the kit.\r\n     * If not, it assigns the item to an index in the kit with a null value (\"empty\" position).\r\n     *\r\n     * @param item The item to be added to the kit.\r\n     * @return true if the item is not in the kit and has been added.\r\n     */\r\n    private boolean addItem(String item) {\r\n        if (!hasItemInKit(item)) {\r\n            int idx = emptyPositionInKit();\r\n            kit[idx] = item;\r\n            return true;\r\n        }\r\n\r\n        return false;\r\n    }\r\n\r\n    /**\r\n     * Checks if the kit Array has the specified item.\r\n     *\r\n     * @param item The search item\r\n     * @return true if the item is found.\r\n     */\r\n    public boolean hasItemInKit(String item) {\r\n        for (String tmpItem : kit) {\r\n            if (item.equals(tmpItem)) {\r\n                // early return\r\n                return true;\r\n            }\r\n        }\r\n\r\n        return false;\r\n    }\r\n\r\n     /**\r\n     * Returns a printable representation of the inventory, which\r\n     * is a list of the items in kit, with a space between each item.\r\n     *\r\n     * @return The printable String representation of the inventory.\r\n     */\r\n    public String getInventory() {\r\n        String printableKit = \"\";\r\n        String space = \" \";\r\n\r\n        for (String item : kit) {\r\n            if (item != null) {\r\n                printableKit += item + space;\r\n            }\r\n        }\r\n\r\n        return Colors.PURPLE + printableKit + Colors.RESET;\r\n    }\r\n\r\n    /**\r\n     * @return A string representation of the hunter.\r\n     */\r\n    public String toString() {\r\n        String str = hunterName + \" has \" + Colors.YELLOW + gold + Colors.RESET + \" gold\";\r\n        if (!kitIsEmpty()) {\r\n            str += \" and \" + getInventory();\r\n        }\r\n        return str;\r\n    }\r\n\r\n    /**\r\n     * Searches kit Array for the index of the specified value.\r\n     *\r\n     * @param item String to look for.\r\n     * @return The index of the item, or -1 if not found.\r\n     */\r\n    private int findItemInKit(String item) {\r\n        for (int i = 0; i < kit.length; i++) {\r\n            String tmpItem = kit[i];\r\n\r\n            if (item.equals(tmpItem)) {\r\n                return i;\r\n            }\r\n        }\r\n\r\n        return -1;\r\n    }\r\n\r\n    /**\r\n     * Check if the kit is empty - meaning all elements are null.\r\n     *\r\n     * @return true if kit is completely empty.\r\n     */\r\n    private boolean kitIsEmpty() {\r\n        for (String string : kit) {\r\n            if (string != null) {\r\n                return false;\r\n            }\r\n        }\r\n\r\n        return true;\r\n    }\r\n\r\n    /**\r\n     * Finds the first index where there is a null value.\r\n     *\r\n     * @return index of empty index, or -1 if not found.\r\n     */\r\n    private int emptyPositionInKit() {\r\n        for (int i = 0; i < kit.length; i++) {\r\n            if (kit[i] == null) {\r\n                return i;\r\n            }\r\n        }\r\n\r\n        return -1;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Hunter.java b/src/Hunter.java
+--- a/src/Hunter.java	
++++ b/src/Hunter.java	
+@@ -18,7 +18,7 @@
+      */
+     public Hunter(String hunterName, int startingGold) {
+         this.hunterName = hunterName;
+-        kit = new String[5]; // only 5 possible items can be stored in kit
++        kit = new String[6]; // only 5 possible items can be stored in kit ---- UPDATED TO 6 ITEMS
+         gold = startingGold;
+     }
+ 
