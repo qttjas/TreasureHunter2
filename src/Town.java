@@ -12,7 +12,7 @@ public class Town {
     private String printMessage;
     private boolean toughTown;
     private String assignedTreasure;
-    private boolean easy;
+    private boolean easy = true;
     private boolean dug;
 
     private boolean searchedTown;
